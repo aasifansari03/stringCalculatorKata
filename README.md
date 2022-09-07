@@ -26,4 +26,40 @@ numbers = numbers.replace(r"\n", ',')     # replacing line break with comma
 lst = numbers.split(",")                  # splitting into a list
 ```
 
-4. 
+4. This condition is used to check if there's an uppercase letter in the string. If any uppercase letter is found then we break out of the for loop & throw an exception message conveying the same.
+
+```
+capital_flag = 0
+            for i in lst:
+                 if (ord(i[-1]) >= 65 and ord(i[-1]) <= 90):     # checking for capital letters
+                     capital_flag = 1
+                     break
+                 else:
+                     continue
+```
+
+5. This piece of code is used to get the ASCII values of the lowercase letters so that we can assign positional values to the lowercase letters & use it for addition.
+
+```
+for i in range(len(lst)):
+            if (ord(lst[i][-1]) >= 97 and ord(lst[i][-1]) <= 122):     # getting the alphabet from the string
+                lst[i] = ord(lst[i]) - 96
+            else:
+                lst[i] = int(lst[i])
+```
+
+6. All negative values are stored in the list called negatives which are displayed when negative numbers are entered in the string.
+
+```
+negatives = []
+        for i in lst:
+            if i < 0:
+                negatives.append(i)
+```
+
+7. All valid characters in the string are added. Values greater than 1000 is ignored.
+
+```
+print("Addition of string : " + str(sum([j if j <= 1000 else 0 for j in lst])))     # adding string only if they are equal & less than 1000
+```
+
