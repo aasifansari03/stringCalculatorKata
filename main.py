@@ -7,7 +7,7 @@ if __name__ == "__main__":
             print(0)   
         else:
             lst = numbers.split(",")  # splitting into a list
-            
+            print(lst)
             # converting alphabets to integers
             for i in range(len(lst)):
                 if ord(lst[i][-1])>=97 and ord(lst[i][-1])<=122:     # getting the alphabet from the string
@@ -24,6 +24,7 @@ if __name__ == "__main__":
             if(len(negatives)>0):
                 print("You entered these negative numbers : "+ str(negatives) +". Negative numbers are not allowed")
             else:
-                print("Addition of numbers : "+ str(sum(lst)))
-                  
-    add("5,1,a,d,3,-1,-4")
+                print("Addition of numbers : "+  str(sum([j if j<=1000 else 0 for j in lst])))
+               
+    numbersString = input('Enter numbers string: ')
+    add(numbersString)
