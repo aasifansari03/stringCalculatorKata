@@ -8,6 +8,7 @@ if __name__ == "__main__":
         if(numbers == "" or numbers.strip() == ""):     # checking if the entered string is empty or not
             print(0)   
         else:
+            numbers = numbers.replace(' ', '')     # replacing spaces with empty characters in the string
             numbers = numbers.replace(r"\n", ',')     # replacing line break with comma
             lst = numbers.split(",")     # splitting into a list
             
