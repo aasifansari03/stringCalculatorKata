@@ -6,11 +6,12 @@ if __name__ == "__main__":
         if(numbers == "" or numbers.strip() == ""):
             print(0)   
         else:
-            lst = numbers.split(",")  # splitting into a list
-            print(lst)
+            numbers = numbers.replace(r"\n", ',')
+            lst = numbers.split(",")     # splitting into a list
+
             # converting alphabets to integers
             for i in range(len(lst)):
-                if ord(lst[i][-1])>=97 and ord(lst[i][-1])<=122:     # getting the alphabet from the string
+                if (ord(lst[i][-1]) >=97 and ord(lst[i][-1]) <= 122):     # getting the alphabet from the string
                     lst[i] = ord(lst[i]) - 96
                 else:
                     lst[i] = int(lst[i])
@@ -18,13 +19,13 @@ if __name__ == "__main__":
             # counting negative numbers
             negatives = []
             for i in lst:
-                if i< 0:
+                if i < 0:
                     negatives.append(i)
 
-            if(len(negatives)>0):
+            if(len(negatives) > 0):   
                 print("You entered these negative numbers : "+ str(negatives) +". Negative numbers are not allowed")
             else:
-                print("Addition of numbers : "+  str(sum([j if j<=1000 else 0 for j in lst])))
+                print("Addition of numbers : " + str(sum([j if j <= 1000 else 0 for j in lst])))
                
     numbersString = input('Enter numbers string: ')
     add(numbersString)
